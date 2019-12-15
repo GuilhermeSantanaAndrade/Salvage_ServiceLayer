@@ -1,0 +1,34 @@
+
+> arquiteturasalvage@1.0.0 test D:\fontes\AudaSalvage\Services_Front
+> mocha tests/**/*.spec.js --require babel-register
+
+
+
+  App.js
+    Smoke Tests
+      √ deveria existir o objeto acesso exportado em app
+      √ deveria existir o objeto guincheiro exportado em app
+
+  AcessoService
+    Smoke Tests
+      √ deveria existir a funcao acesso()
+      √ deveria existir a funcao login
+      √ deve existir o metodo esqueceuSenha
+      √ deveria existir o metodo alterarSenha
+
+  DespachanteService
+    Smoke Tests
+      √ deveria existir o objeto despachante
+      √ deveria existir a funcao incluir
+
+  GuincheiroService
+    Smoke Tests
+      √ deveria existir o objeto guincheiro
+      √ deveria existir o metodo de incluir guincheiro
+      √ deveria existir o metodo de atualizar guincheiro
+      √ deveria existir o metodo de deletar guincheiro
+      √ deveria existir o metodo de listar guincheiros
+
+
+  13 passing (31ms)
+

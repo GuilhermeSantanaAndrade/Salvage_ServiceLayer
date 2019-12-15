@@ -1,0 +1,60 @@
+{
+  "name": "arquiteturasalvage",
+  "version": "1.0.0",
+  "description": "Base de codigo para Salvage",
+  "main": "./src/app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "clear": "rimraf lib",
+    "build": "./node_modules/.bin/webpack --colors --progress",
+    "build:babel": "./node_modules/.bin/babel --out-dir lib src",
+    "build:babel:watch": "npm run build:babel -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename arquiteturasalvage.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename arquiteturasalvage.umd.min.js -p",
+    "build:all": "npm run clear && npm run build:babel && npm run build:umd && npm run build:umd:min",
+    "watch": "npm run build -- --watch",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test",
+    "prepush": "npm run lint && npm run test:coverage",
+    "lint": "./node_modules/.bin/eslint src/**/*.js"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "author": "Thiago de Souza Peixoto",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "moxios": "^0.4.0",
+    "node-fetch": "^2.3.0",
+    "nyc": "^14.1.1",
+    "rimraf": "^2.6.2",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
